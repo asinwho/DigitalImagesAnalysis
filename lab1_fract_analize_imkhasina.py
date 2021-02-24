@@ -99,18 +99,17 @@ print("Step4 : ", np.add.reduce(array[5:]))
 
 """размер изображения"""
 
-#Step 1. Get image
+"""способ_1"""
 import cv2
 img = cv2.imread("bw2.jpg")
-#Step 2. Get size
 h, w,c= img.shape
 print (h,w)
-
+"""способ_2"""
 import PIL
 from PIL import Image as img
-i= img.open('/content/bw2.jpg')
+i= img.open("bw2.jpg")
 h, w = i.size
 print (h,w)
 i
-
+"""результаты совпадают"""
 """-----------------"""
