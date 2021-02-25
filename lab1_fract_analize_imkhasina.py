@@ -33,7 +33,7 @@ def fractalDimension(Z, threshold=0.6):#0.5
     #от оттенков серого к ч/б ч(0), б(1)
     Z = (Z < threshold)
     #Ш 4. Determine Eps
-    # Minimal dimension of image
+    # берем минимальную длину по размерам изображения чтобы не выйти за границы
     a = min(Z.shape)
     n1 = 2**np.floor(np.log(a)/np.log(2))
     # Extract the exponent
