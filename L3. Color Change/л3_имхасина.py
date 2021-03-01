@@ -8,14 +8,14 @@ Original file is located at
 
 Цветное->потуновое
 """
+from PIL import Image, ImageDraw
 
-import random
-from PIL import Image, ImageDraw #Подключим необходимые библиотеки. 
-orig = Image.open("1.jpg") #Открываем изображение. 
+orig = Image.open("1.jpg")
 orig = orig.convert('RGB')
-draw = ImageDraw.Draw(orig) #Создаем инструмент для рисования. 
+draw = ImageDraw.Draw(orig)
 w, h = orig.size	
-new_image = orig.load() #Выгружаем значения пикселей.
+new_image = orig.load()
+
 for i in range(w):
 		for j in range(h):
 			r = new_image[i, j][0]
