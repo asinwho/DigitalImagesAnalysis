@@ -8,6 +8,42 @@ Original file is located at
 
 Цветное->потуновое
 """
+#перевод изображения с использованием библиотеки
+from PIL import Image, ImageDraw 
+image_file = Image.open("1.jpg") 
+image_file = image_file.convert('LA') # LA - оттенки серого, 1 - ч/б
+image_file.save('result.png')  #сохранение монотонного изображения в оттенках серого
+image_file = Image.open("result.png")
+image_file # просмотр результата
+
+#Монотонное изображение другого оттенка
+orig = image_file
+orig = orig.convert('RGB')
+draw = ImageDraw.Draw(orig)
+w, h = orig.size	
+new_image = orig.load()
+
+for i in range(w):
+		for j in range(h): #наши значения идут как [(r,g,b),(r,g,b),...], поэтому присваиваем соответственно
+			r = new_image[i, j][0]
+			g = new_image[i, j][1]
+			b = new_image[i, j][2]
+      
+			r = r
+			g = g+30
+			b = b
+      #Для привода к оттенку двигаем одно из значений G+=30 
+			if (r > 255):
+				r = 255
+			if (g > 255):
+				g = 255
+			if (b > 255):
+				b = 255
+			draw.point((i, j), (r, g, b))
+orig.save("ans_2.jpg", "JPEG")
+orig# просмотр результата
+
+# вариант 2
 from PIL import Image, ImageDraw
 
 orig = Image.open("1.jpg")
