@@ -16,7 +16,6 @@ from google.colab.patches import cv2_imshow
 
 originalImage = cv2.imread('bw2.jpg')
 grayImage = cv2.cvtColor(originalImage, cv2.COLOR_BGR2GRAY)
-#print("фрактальная размерность полутонового изображения: ", fractal_dimension(grayImage))
 cv2.imwrite("gs1.jpg", grayImage)
 
 def uS(img):
