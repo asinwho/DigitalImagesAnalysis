@@ -65,9 +65,6 @@ def getA(gImage):
   A_2=(vol2-vol1)/(2)
   return A_2
 
-SEGMENT_SIZE = 5
-A_BORDER = 1000
-
 # used for finding out A border
 def calc_stats(l):
     s = Series(A_s)
@@ -78,13 +75,13 @@ def segm(img):
 
     A_s = []
 
-    for i in range(0, img.shape[0], SEGMENT_SIZE):
-        for j in range(0, img.shape[1], SEGMENT_SIZE):
-            A = getA(img[i:i + SEGMENT_SIZE, j: j + SEGMENT_SIZE])
+    for i in range(0, img.shape[0], 5):
+        for j in range(0, img.shape[1], 5):
+            A = getA(img[i:i + 5, j: j + 5])
             A_s.append(A)
-            if A >= A_BORDER:
-                segmented_img[i:i + SEGMENT_SIZE,
-                j:j + SEGMENT_SIZE].fill(0)
+            if A >= 1000:
+                segmented_img[i:i + 5,
+                j:j + 5].fill(0)
 
     cv2.imwrite('Result_3.png', segmented_img)
 
