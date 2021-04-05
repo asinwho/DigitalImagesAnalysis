@@ -32,33 +32,16 @@ def uS(img):
   u=np.ndarray(img.shape)
   for i in range(k-1):
     for j in range(l-1):
-      minmax = []
-      if i > 0:
-          minmax.append(img[i - 1][j])
-      if i < img.shape[0] - 1:
-          minmax.append(img[i + 1][j])
-      if j < img.shape[1] - 1:
-          minmax.append(img[i][j + 1])
-      if j > 0:
-          minmax.append(img[i][j - 1])
-      u[i][j] = max(img[i][j] + 1, max(minmax))
+      u[i][j]=max(img[i][j]+1,max(img[i-1][j],img[i][j-1],img[i+1][j],img[i][j+1]))
   return u
+
 def bS(img):
   k,l=img.shape
-  u=np.ndarray(img.shape)
+  b=np.ndarray(img.shape)
   for i in range(k-1):
     for j in range(l-1):
-      minmax = []
-      if i > 0:
-          minmax.append(img[i - 1][j])
-      if i < img.shape[0] - 1:
-          minmax.append(img[i + 1][j])
-      if j < img.shape[1] - 1:
-          minmax.append(img[i][j + 1])
-      if j > 0:
-          minmax.append(img[i][j - 1])
-      u[i][j] = min(img[i][j] - 1, min(minmax))
-  return u
+      b[i][j]=min(img[i][j]-1,min(img[i-1][j],img[i][j-1],img[i+1][j],img[i][j+1]))
+  return b
 
 
 
