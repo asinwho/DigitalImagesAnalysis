@@ -1,5 +1,5 @@
 Задание №1. Фрактальная (емкостная) размерность с использованием МНК. Py & ipynb с комментариями.<br/>
-Ссылка на коллаб: https://colab.research.google.com/drive/1QDCpESRhtRhRiy9o6srbe7cYyVo8nyoE?usp=sharing <br/>
+
 Используемые изображения прилагаются.<br/>
 ('bw2.jpg') #output: 2048 1318 1.299072<br/>
 ('bw1.png') output: 792 1584 1.5724228093086527<br/>
